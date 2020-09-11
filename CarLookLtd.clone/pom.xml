@@ -42,7 +42,7 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-
+        
 	<dependencies>
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -50,6 +50,11 @@
 			<version>3.0.1</version>
 			<scope>provided</scope>
 		</dependency>
+                <dependency>
+                <groupId>postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>9.1-901-1.jdbc4</version>
+            </dependency>
 		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-server</artifactId>
@@ -66,8 +71,10 @@
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-themes</artifactId>
 		</dependency>
+                
+            
 	</dependencies>
-
+        
 	<build>
 		<plugins>
 			<plugin>

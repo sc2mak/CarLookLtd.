@@ -4,6 +4,8 @@ import javax.servlet.annotation.WebServlet;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
+import com.vaadin.navigator.Navigator;
+import com.vaadin.navigator.View;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.Button;
@@ -12,6 +14,11 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
+import gui.views.LoginView;
+import gui.views.MainView;
+import gui.views.RegisterView;
+import gui.views.StartView;
+import services.util.Views;
 
 /**
  * This UI is the application entry point. A UI may either represent a browser window 
@@ -26,6 +33,13 @@ public class MyUI extends UI {
     @Override
     protected void init(VaadinRequest vaadinRequest) {
        
+       Navigator navi = new Navigator (this, this);
+       navi.addView (Views.START , StartView.class);
+       navi.addView (Views.LOGIN , LoginView.class);
+       navi.addView (Views.REGISTER, RegisterView.class);
+       navi.addView(Views.MAIN, MainView.class);
+       
+       UI.getCurrent().getNavigator().navigateTo(Views.START);
     }
 
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
