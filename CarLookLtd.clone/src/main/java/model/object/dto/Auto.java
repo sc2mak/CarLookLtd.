@@ -10,14 +10,14 @@ package model.object.dto;
  * @author thore
  */
 public class Auto {
-    public String kennzeichen = null;
+    public String beschreibung = null;
 
-    public String getKennzeichen() {
-        return kennzeichen;
+    public String getBeschreibung() {
+        return beschreibung;
     }
 
-    public void setKennzeichen(String kennzeichen) {
-        this.kennzeichen = kennzeichen;
+    public void setBeschreibung(String kennzeichen) {
+        this.beschreibung = kennzeichen;
     }
 
     public String getHersteller() {
@@ -28,21 +28,21 @@ public class Auto {
         this.hersteller = hersteller;
     }
 
-    public String getTyp() {
-        return typ;
+    public String getBaujahr() {
+        return baujahr;
     }
 
-    public void setTyp(String typ) {
-        this.typ = typ;
+    public void setBaujahr(String typ) {
+        this.baujahr = typ;
     }
     public String hersteller = null;
-    public String typ = null;
+    public String baujahr = null;
 
 
 public Auto (String kennzeichen, String hersteller, String typ) {
-    this.kennzeichen = kennzeichen;
+    this.beschreibung = kennzeichen;
     this.hersteller = hersteller;
-    this.typ = typ;
+    this.baujahr = typ;
     }
     
     

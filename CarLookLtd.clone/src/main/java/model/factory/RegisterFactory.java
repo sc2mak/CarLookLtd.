@@ -18,9 +18,9 @@ public class RegisterFactory {
     public static RegisterCarDTO produceRegisterCarDTO (Auto auto, User user) {
         RegisterCarDTO registerCarDTO = new RegisterCarDTO () ;
         registerCarDTO.setHersteller(auto.getHersteller());
-        registerCarDTO.setKennzeichen(auto.getKennzeichen());
+        registerCarDTO.setBeschreibung(auto.getBeschreibung());
         registerCarDTO.setMail(user.getMail());
-        registerCarDTO.setTyp(auto.getTyp());
+        registerCarDTO.setBaujahr(auto.getBaujahr());
         return registerCarDTO;
     }
     

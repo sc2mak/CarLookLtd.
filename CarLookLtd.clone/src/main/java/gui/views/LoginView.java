@@ -42,7 +42,7 @@ public class LoginView extends VerticalLayout implements View{
         this.setUp(); }
     }
      public void setUp() {
-         Label head = new Label ("Login");
+         Label head = new Label ("");
          final TextField login = new TextField();
          login.setCaption ("Username");
          final PasswordField password = new PasswordField ();

@@ -46,25 +46,25 @@ public class MainView extends VerticalLayout implements View{
          
          setMargin(true);
          
-         final TextField kennzeichen = new TextField();
-         kennzeichen.setCaption("kennzeichen");
+         final TextField beschreibung = new TextField();
+         beschreibung.setCaption("beschreibung");
          final TextField marke = new TextField();
          marke.setCaption("marke");
-         final TextField typ = new TextField();
-         typ.setCaption("typ");
+         final TextField baujahr = new TextField();
+         baujahr.setCaption("baujahr");
          
-         this.addComponent(kennzeichen);
+         this.addComponent(beschreibung);
          this.addComponent(marke);
-         this.addComponent(typ);
+         this.addComponent(baujahr);
          
          Button registerButton = new Button ("Register Auto");
          this.addComponent(registerButton);
          registerButton.addClickListener(new Button.ClickListener() {
              @Override
              public void buttonClick(Button.ClickEvent event) {
-                 Auto auto = new Auto (kennzeichen.getValue(), marke.getValue(), typ.getValue());
+                 Auto auto = new Auto (beschreibung.getValue(), marke.getValue(), baujahr.getValue());
                  boolean test = AutoRegControl.getInstance().register(auto);
-                 if (test) { Notification.show("Fehler", "kein fehler", Notification.Type.ERROR_MESSAGE);
+                 if (test) { Notification.show("Ok", "Registrierung erfolgreich!", Notification.Type.HUMANIZED_MESSAGE);
                  }
                  else {
                      Notification.show("Fehler", "fehler", Notification.Type.ERROR_MESSAGE);

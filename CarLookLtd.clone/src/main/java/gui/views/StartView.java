@@ -29,7 +29,7 @@ public class StartView extends VerticalLayout implements View{
         loginButton.addClickListener(e -> {
            UI.getCurrent().getNavigator().navigateTo(Views.LOGIN);
         });
-        Button registerButton = new Button("register");
+        Button registerButton = new Button("register Mitarbeiter");
         registerButton.addClickListener(e -> {
             UI.getCurrent().getNavigator().navigateTo(Views.REGISTER);;
         });

@@ -16,6 +16,8 @@ import com.vaadin.ui.Panel;
 import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
+import model.object.dto.RegisterUserDTO;
+import model.object.dto.User;
 import process.control.LoginControll;
 import process.control.RegisterControll;
 import process.controll.exceptions.LoginDatenFehler;
@@ -32,12 +34,18 @@ public class RegisterView extends VerticalLayout implements View{
      public void setUp() {
          Label head = new Label ("Register");
          final TextField login = new TextField();
-         login.setCaption ("Username");
+         login.setCaption ("Mailadresse");
+         final TextField name = new TextField();
+         name.setCaption ("Nachname");
+         final TextField vorname = new TextField();
+         vorname.setCaption ("Vorname");
          final PasswordField password = new PasswordField ();
          password.setCaption("Password");
          
          HorizontalLayout layout = new HorizontalLayout();
          layout.addComponent(login);
+         layout.addComponent(vorname);
+         layout.addComponent(name);
          layout.addComponent(password);
          Panel panel = new Panel ("Bitte Nutzerdaten eingeben");
          this.addComponent(panel);
@@ -50,13 +58,22 @@ public class RegisterView extends VerticalLayout implements View{
          loginButton.addClickListener(new Button.ClickListener() {
              @Override
              public void buttonClick(Button.ClickEvent event) {
-                 String loginString = login.getValue();
-                 String passwordString = password.getValue();
+                 RegisterUserDTO rud = new RegisterUserDTO();
+                 rud.setMail(login.getValue());
+                 rud.setName(name.getValue());
+                 rud.setVorname(vorname.getValue());
+                 rud.setPassword(password.getValue());
                  
+                
                  try {
-                     RegisterControll.check(loginString, passwordString);
+                     RegisterControll.getInstance().register(rud);
                  } catch (RegisterDatenFehler ex) {
-                     Notification.show("Nutername bereits vorhanden", "Mail ist keine Firmenadresse", Notification.Type.ERROR_MESSAGE);
+                     Notification.show("MailAdresse bereits vorhanden","", Notification.Type.ERROR_MESSAGE);
+                     login.setValue("");
+                     password.setValue("");
+                 }
+                 catch (LoginDatenFehler ex) {
+                     Notification.show("Mailadresse muss eine Firmenadresse sein","@carlook.de", Notification.Type.ERROR_MESSAGE);
                      login.setValue("");
                      password.setValue("");
                  }

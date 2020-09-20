@@ -37,7 +37,6 @@ public class AbstractDAO {
             preparedStatement = JDBCcon.getInstance().getPreparedStatement(sql);
         } catch (DBFehler ex) {
             Logger.getLogger(AbstractDAO.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.print("fehler");
         }
         return preparedStatement;
     }

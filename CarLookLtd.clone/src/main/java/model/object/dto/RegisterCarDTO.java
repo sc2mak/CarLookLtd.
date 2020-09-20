@@ -19,20 +19,20 @@ public class RegisterCarDTO {
         this.mail = mail;
     }
 
-    public String getTyp() {
-        return typ;
+    public String getBaujahr() {
+        return baujahr;
     }
 
-    public void setTyp(String typ) {
-        this.typ = typ;
+    public void setBaujahr(String typ) {
+        this.baujahr = typ;
     }
 
-    public String getKennzeichen() {
-        return kennzeichen;
+    public String getBeschreibung() {
+        return beschreibung;
     }
 
-    public void setKennzeichen(String kennzeichen) {
-        this.kennzeichen = kennzeichen;
+    public void setBeschreibung(String kennzeichen) {
+        this.beschreibung = kennzeichen;
     }
 
     public String getHersteller() {
@@ -44,8 +44,8 @@ public class RegisterCarDTO {
     }
     
     private String mail = null;
-    private String typ = null;
-    private String kennzeichen = null;
+    private String baujahr = null;
+    private String beschreibung = null;
     private String hersteller = null;
     
     
